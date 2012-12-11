@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Kresendo verktøy</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Kresendo labs gir deg verktøy du kan bruke i egne kartløsninger!">
+    <meta name="author" content="Kresendo">
+	
+	
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+       <link href="css/bootstrap-responsive.min.css" rel="stylesheet">
+	
+    <style type="text/css">
+      body {
+        padding-top: 20px;
+        padding-bottom: 40px;
+      }
+
+      /* Custom container */
+      .container-narrow {
+        margin: 0 auto;
+        max-width: 700px;
+      }
+      .container-narrow > hr {
+        margin: 30px 0;
+      }
+
+      /* Main marketing message and sign up button */
+      .jumbotron {
+        margin: 10px 0;
+        text-align: center;
+      }
+      .jumbotron h1 {
+        font-size: 72px;
+        line-height: 1;
+      }
+      .jumbotron .btn {
+        font-size: 21px;
+        padding: 14px 24px;
+      }
+
+      /* Supporting marketing content */
+      .marketing {
+        margin: 10px 0;
+      }
+      .marketing p + h4 {
+        margin-top: 28px;
+      }
+    </style>
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="js/html5.js"></script>
+    <![endif]-->
+
+    <!-- Fav and touch icons -->
+    <link rel="shortcut icon" href="">
+
+  </head>
+
+  <body>
+	  <a href="https://github.com/esisa/elevationprofile"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_left_darkblue_121621.png" alt="Fork me on GitHub"></a>
+
+    <div class="container-narrow">
+
+      <div class="masthead">
+        <ul class="nav nav-pills pull-right">
+          <li><a href="index.html">Hjem</a></li>
+          <li><a href="kart.html">Kart</a></li>
+          <li class="active"><a href="hoydeprofil.html">Høydeprofil</a></li>
+        </ul>
+        <h3 class="muted">Kresendo verktøy</h3>
+      </div>
+
+      <hr>
+
+      <div class="jumbotron">
+        <h1>Kresendo høydeprofil</h1>
+        <p class="lead">Når du trenger en høydeprofil nå!</p>
+        
+      </div>
+
+      <hr>
+
+      <div class="row-fluid marketing">
+        <div class="span12">
+          <p>Ved å bruke Kresendos høydeprofil kan du legge til høydeprofiler på ditt eget nettsted. Prøv høydeprofilen <a href="profilEksempel.html">her</a> eller se hvordan det ser ut på <a href="http://www.turkompisen.no">Turkompisen.no</a>
+		  </p>
+		  
+          <p>Høydeprofilen gir deg svar på GeoJSON-format og det er veldig enkelt å bruke tjenesten. Send inn data med HTTP POST i GeoJSON eller WKT format. Se <a href="profilEksempel.html">eksempelet</a> for hvordan du kan gjøre det med jQuery.<br><br>
+		  </p>
+		  
+		  
+          <p>For å teste kan du bruke curl. Eksempel på kall er:
+		  </p>
+		  
+          <p>
+			  <strong>curl -H "Content-type: application/json" -X POST http://labs.kresendo.no/tools/elevationprofile.geojson -d @example.geojson</strong>
+		  </p>
+		  
+          <p>
+			  eller 
+		  </p>
+		  
+          <p>
+			  <strong>curl -H "Content-type: text/plain" -X POST http://labs.kresendo.no/tools/elevationprofile.wkt -d @example.wkt</strong><br><br>
+		  </p>
+		  
+          <p>
+			  Eksempler på GeoJSON eller WKT du kan bruke finner du <a href="https://github.com/esisa/elevationprofile/tree/master/example">her</a><br><br>
+		  </p>
+		  
+         
+          <p>
+			  Kresendo høydeprofil er også tilgjengelig som fri programvare. Se på koden og prøv den ut selv på <a href="https://github.com/esisa/elevationprofile">Github</a>. Ønsker du tilpasninger eller bruke høydeprofilen i større skala så <a href="http://www.kresendo.no/">ta kontakt</a>.  
+		  </p>
+		  
+          <p>
+			  Merk at Kresendo høydeprofil bruker <a href="http://asterweb.jpl.nasa.gov/gdem.asp">Aster data</a> som for Norge kan mangle data i enkelte mindre områder. Tjenesten leverer negative høydeverdier for disse områdene. Du må sjøl håndtere dette. Se koden til <a href="profilEksempel.html">eksempelet</a> for å se hvordan dette kan løses. Se <a href="http://www.turkompisen.no">Turkompisen.no</a> for hvilke områder som mangler data. 
+		  </p>
+		 
+        </div>
+
+       
+      </div>
+
+      <hr>
+
+      <div class="footer">
+        <p>&copy; Kresendo 2012</p>
+      </div>
+
+    </div> <!-- /container -->
+
+
+
+  </body>
+</html>
