@@ -59,18 +59,25 @@ var baseMaps = {
 
 
 $('#mapHeight').change(function(){
+    
     var val = $('#mapHeight').val();
     $('#map').height(val);
     frameHeight = val;
     hash.updateEmbedCode();
-    console.log("dsfsdfdsfsd");
+    
+    //Force center after changing frame
+    map.invalidateSize(true);
 });
 
 $('#mapWidth').change(function(){
+    
     var val = $('#mapWidth').val();
     $('#map').width(val);
     frameWidth = val;
     hash.updateEmbedCode();
+    
+    //Force center after changing frame
+    map.invalidateSize(true);
 });
 
 /*
