@@ -97,7 +97,7 @@ function searchPlace() {
 
 function searchName(value) {
     
-	$.getJSON('http://open.mapquestapi.com/nominatim/v1/search?format=json&limit=8&countrycodes=no&q=' + value, {/*somedata*/}, function(json_data){
+	$.getJSON('nominatim/search?format=json&limit=8&countrycodes=no&q=' + value, {/*somedata*/}, function(json_data){
         
         
         var item = json_data[0];
