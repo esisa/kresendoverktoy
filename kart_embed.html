@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Kresendo verktøy</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Kresendo labs gir deg verktøy du kan bruke i egne kartløsninger!">
+    <meta name="author" content="Kresendo">
+	
+	
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+   <link href="css/bootstrap-responsive.min.css" rel="stylesheet">
+       
+   <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.4.5/leaflet.css" />
+   		<!--[if lte IE 8]>
+   			<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.4.5/leaflet.ie.css" />
+   		<![endif]-->
+	
+   	
+	
+	
+   	<script src="http://cdn.leafletjs.com/leaflet-0.4.5/leaflet.js"></script>
+
+	
+    <style type="text/css">
+      body {
+        padding-top: 20px;
+        padding-bottom: 40px;
+      }
+
+      /* Custom container */
+      .container-narrow {
+        margin: 0 auto;
+        max-width: 700px;
+      }
+      .container-narrow > hr {
+        margin: 30px 0;
+      }
+
+      /* Main marketing message and sign up button */
+      .jumbotron {
+        margin: 10px 0;
+        text-align: center;
+      }
+      .jumbotron h1 {
+        font-size: 72px;
+        line-height: 1;
+      }
+      .jumbotron .btn {
+        font-size: 21px;
+        padding: 14px 24px;
+      }
+
+      /* Supporting marketing content */
+      .marketing {
+        margin: 10px 0;
+      }
+      .marketing p + h4 {
+        margin-top: 28px;
+      }
+    </style>
+    
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	
+	<script type="text/javascript">
+
+	  var _gaq = _gaq || [];
+	  _gaq.push(['_setAccount', 'UA-37040770-1']);
+	  _gaq.push(['_trackPageview']);
+
+	  (function() {
+	    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+	    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+	    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	  })();
+
+	</script>
+    
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="js/html5.js"></script>
+    <![endif]-->
+
+    <!-- Fav and touch icons -->
+    <link rel="shortcut icon" href="">
+
+  </head>
+
+  <body>
+
+    <div class="container-narrow">
+
+      <div class="masthead">
+        <ul class="nav nav-pills pull-right">
+          <li><a href="index.html">Hjem</a></li>
+          <li><a href="kart.html">Kart</a></li>
+          <li class="active"><a href="kart_embed.html">Kart embed</a></li>
+          <li><a href="hoydeprofil.html">Høydeprofil</a></li>
+        </ul>
+        <h3 class="muted">Kresendo verktøy</h3>
+      </div>
+
+      <hr>
+
+      <div class="jumbotron">
+        <h1>Turkompisen embed!</h1>
+        <p class="lead">Turkart på eget nettsted!</p>
+        
+      </div>
+
+      <hr>
+
+      <div class="row-fluid marketing">
+        <div class="span12">
+	
+		  
+          <p>Du kan legge til Turkompisen-kartene gjennom embedding. Dette er helt kostnadsfritt og veldig enkelt!<br><br>
+		  	<ol>
+				<li>
+                    <form onsubmit="return false;" AUTOCOMPLETE="off">
+                      <fieldset>
+                        <label>Søk sted</label>
+                        <input id="mapSearch" type="text" placeholder="Stedsnavn…">
+                        <button  type="submit" class="btn" onClick="searchPlace();">Søk</button>
+                      </fieldset>
+                    </form>
+                </li>
+				<li>
+                    <form onsubmit="return false;" AUTOCOMPLETE="off">
+                        <fieldset>
+                          <label>Velg størrelse</label>
+                          <div>
+                              Bredde:  <input id="mapWidth" type="text" placeholder="600px"><span style="margin-left: 10px;">Høyde:</span>  <input id="mapHeight" type="text" placeholder="350px">
+                          </div>
+                         
+                        </fieldset>
+                    </form>
+				</li>
+                <li>Velg standard karttype: 
+                    <form onsubmit="return false;" AUTOCOMPLETE="off">
+                        <label class="radio">
+                          <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" onClick="layerTurkart();" checked>
+                          Turkart
+                        </label>
+                        <label class="radio">
+                          <input type="radio" name="optionsRadios" id="optionsRadios2" onClick="layerSkikart();" value="option2">
+                          Skikart
+                        </label>
+                    </form>
+                </li>
+                <br>
+				<li>Kopier koden under kartet og lim inn på eget nettsted.</li>
+			</ol>
+			<br>	
+			<div id="map" style="width: 600px; height: 350px"></div>
+		  </p>
+          <form onsubmit="return false;" AUTOCOMPLETE="off">
+          <textarea id="embedText" style="width:600px;" rows="4"><iframe width="625" height="350" frameborder="0" scrolling="no" marginheight="0"	marginwidth="0" src="http://www.turkompisen.no/embed.html?#10/59.8989/10.6451/turkart"></iframe><br /><small><a href="http://www.turkompisen.no/?#10/59.8989/10.6451/turkart" style="color:#0000FF;text-align:left">Se st&oslash;rre kart</a></small>
+          </textarea>
+		  </form>
+         
+        </div>
+
+       
+      </div>
+
+      <hr>
+
+      <div class="footer">
+        <p>&copy; <a href="http://www.kresendo.no">Kresendo</a> 2012</p>
+      </div>
+
+    </div> <!-- /container -->
+
+    <script type="text/javascript" src="js/leaflet-hash.js"></script>
+    <script type="text/javascript" src="js/leafletMap.js"></script>
+
+  </body>
+</html>
